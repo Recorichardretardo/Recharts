@@ -173,7 +173,7 @@ const CustomYAxisTick =  ({ x, y, payload}) => {
          radius={[2, 2, 2, 2]} >
            {
           	data.map((entry, index) => {
-            	const color = entry.pv > 4000 ? COLORS[1] : COLORS[2];
+            	const color = entry.pv > 4000 ? COLORS[0] : COLORS[1];
             	return <Cell fill={color} />;
             })
           }
