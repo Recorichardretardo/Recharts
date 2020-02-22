@@ -1,25 +1,9 @@
+git remote set-url origin https://github.com/Recorichardretardo/Recharts.git
 
+https://github.com/recharts/recharts/blob/master/demo/component/BarChart.js
 
+https://github.com/recharts/recharts/issues/1722
 
-https://date-fns.org/v2.0.0-alpha.18/docs/I18n
+https://codesandbox.io/s/ll68p643xl
 
-https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md
-
-https://www.robinwieruch.de/react-function-component
-
-
-const DatepickerExample = () => {
-    const [startDate, setStartDate] = useState(new Date());
-      return (<>
-       <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
-      </>);
-};
-
-export default DatepickerExample;
-
-
-
-import '../../Datepicker/index.scss';
-
-
-git remote set-url origin https://github.com/Recorichardretardo/react-datepicker.git
+https://github.com/recharts/recharts/issues/225
