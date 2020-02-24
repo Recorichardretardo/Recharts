@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,ResponsiveContainer
 } from 'recharts';
-import './index.scss';
+
 
 
 const data = [
@@ -212,7 +212,7 @@ export default class Example extends PureComponent {
     return (
       <>
       <div  id="container" className="chartAreaWrapper">
-      <ResponsiveContainer height={500} width="100%">
+      <ResponsiveContainer height={data.length * 50 + 10} width="100%">
       <LineChart
         width={500}
         height={300}
@@ -222,7 +222,7 @@ export default class Example extends PureComponent {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" interval={0} height={60} dx={20}
+        <XAxis dataKey="name" interval={0} height={60}
          allowDataOverflowBoolean={true} padding={{ left: 20, right: 20 }} tick={<CustomizedAxisTick />} />
         <YAxis />
         <Tooltip />

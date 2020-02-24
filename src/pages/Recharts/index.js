@@ -174,7 +174,7 @@ const CustomYAxisTick =  ({ x, y, payload}) => {
            {
           	data.map((entry, index) => {
             	const color = entry.pv > 4000 ? COLORS[1] : COLORS[2];
-            	return <Cell fill={COLORS[index % COLORS.length ]} />;
+            	return <Cell fill={colors[index % 20]} />;
             })
           }
 
