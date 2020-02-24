@@ -168,13 +168,13 @@ const CustomYAxisTick =  ({ x, y, payload}) => {
                         strokeWidth={0.5}/>
          <Tooltip/>
          <Legend />
-         <Bar barSize ={30}  animationDuration={1000} isAnimationActive={false}   dataKey="pv" fill="#8884d8" 
+         <Bar barSize ={130}  animationDuration={1000} isAnimationActive={false}   dataKey="pv" fill="#8884d8" 
          label={{position: 'right', backgroundColor: '#fff'}} 
          radius={[2, 2, 2, 2]} >
            {
           	data.map((entry, index) => {
             	const color = entry.pv > 4000 ? COLORS[1] : COLORS[2];
-            	return <Cell fill={color} />;
+            	return <Cell fill={COLORS[index % COLORS.length ]} />;
             })
           }
 
