@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 //import ExJsplumb from './Zoom2'; // Change Example name
-import Grid from './pages/LineChart';
+import Grid from './pages/BarChart';
 
 class App extends React.Component{
   render() {
