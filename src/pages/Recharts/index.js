@@ -9,7 +9,10 @@ import clamp from 'clamp-js';
 import './index.scss';
 import lineClamp from 'line-clamp';
 
-
+const CustomizedLabel = (props) => { 
+	return <text x={props.x +22 + props.width} y={props.y +10 + props.height/2} dy={-4} fill={props.fill} fontSize={15} textAnchor="middle">{props.value}</text>
+}
+  
 
 const colors = scaleOrdinal(schemeCategory10).range();
 
@@ -120,9 +123,6 @@ const data = [
 ];
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 const CustomYAxisTick =  ({ x, y, payload}) => {
-
-  console.log("ppppp",x,y,payload)
-  
       return (<g transform={`translate(${0},${y})`}>
           <text x={0} y={0}
               textAnchor="start"
@@ -135,7 +135,11 @@ const CustomYAxisTick =  ({ x, y, payload}) => {
 
 
  class Recharts extends Component {
-  
+  changeLabelValue = (props) => {
+
+    console.log("props",props)
+
+  }
 
   render() {
       
@@ -169,12 +173,12 @@ const CustomYAxisTick =  ({ x, y, payload}) => {
          <Tooltip/>
          <Legend />
          <Bar barSize ={130}  animationDuration={1000} isAnimationActive={false}   dataKey="pv" fill="#8884d8" 
-         label={{position: 'right', backgroundColor: '#fff'}} 
+         label={<CustomizedLabel />} 
          radius={[2, 2, 2, 2]} >
            {
           	data.map((entry, index) => {
             	const color = entry.pv > 4000 ? COLORS[1] : COLORS[2];
-            	return <Cell fill={colors[index % 20]} />;
+            	return <Cell key={index} fill={colors[index % 20]} />;
             })
           }
 
