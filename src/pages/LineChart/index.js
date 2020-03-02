@@ -103,17 +103,12 @@ export default class Example extends PureComponent {
     this.tooltipQty = null;
     this.tooltipDate = null;
   }
+  tootltipchange = (event) => {
+    console.log("ddddddddd",event)
 
-  customMouseOver = (e, name) => {
-    if(name.name === "HVI Prediction" ) {
-      this.setState({
-        name:1
-      })
-    }else {
-      this.setState({
-        name:0
-      })
-    }
+  }
+  customMouseOver = (props, name) => {
+   console.log("e props",props)
    
    
   };
@@ -127,17 +122,28 @@ export default class Example extends PureComponent {
   }
   renderTooltip = ({ active, payload, label }) => {
     if (active) {
-      let nae;
-      if(this.state.name !==undefined){
-        nae=this.state.name
-          
-      }else {
-        nae=0
-      }
+       console.log("payload",payload)
+      // console.log("label",label)
+      
+      
       return (
-       
         <div className="custom-tooltip">
-          <p className="label">{`${label} : ${payload[nae].value}`}</p>
+            <h1>{label}</h1>
+          {Object.keys(payload).map((key) => { 
+             return (
+              <div key={key}>
+                 <span>{payload[key].payload.value}</span>
+               
+                 {/* {payload[key].map((dataItem) => {
+                   
+
+
+                 })} */}
+              </div>)
+          } 
+          )}
+
+          <p className="label">{`${label} : ${'ddd'}`}</p>
         </div>
       );
     }
@@ -149,7 +155,8 @@ export default class Example extends PureComponent {
   render() {
     return (
       <div>
-        <LineChart width={900} height={300} margin={{ top: 20, right: 20 }}>
+        <LineChart width={900} height={300} margin={{ top: 20, right: 20 }} 
+        onMouseOver={(e)=>this.tootltipchange(e)}>
           <CartesianGrid vertical={false} />
           <XAxis
             dataKey="orderDate"
@@ -170,7 +177,7 @@ export default class Example extends PureComponent {
             allowDecimals={false}
             tickLine={false}
           />
-          <Tooltip  content={this.renderTooltip} />
+          <Tooltip content={this.renderTooltip}/>
           <ReferenceLine
             x="7"
             strokeDasharray="5,5"
@@ -180,12 +187,11 @@ export default class Example extends PureComponent {
           {series.map(s => (
             <Line
               activeDot={{
-                onMouseOver: e => this.customMouseOver(e, s),
-                onMouseLeave: this.over
+                onMouseOver: e => this.customMouseOver(e, s)    
               }}
-              isAnimationActive={false}
+              isAnimationActive={true}
               dataKey="value"
-              dot={<CustomizedDot />}
+              dot={<CustomizedDot data={s.data} />}
               stroke={s.stroke}
               strokeDasharray={s.strokeDasharray}
               data={s.data}
