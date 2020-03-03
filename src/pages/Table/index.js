@@ -30,21 +30,22 @@ class Table extends Component {
    }
 
    onChange = (event,index,name) => {
-      let val = index+1
       let {students} = this.state;
       for (var i = 0; i < students.length; i++) {
          // if (students[i].id === val) {
          //    students[i][event.target.name] = event.target.value;
          //   break;
          // }
-         if (students[i].name === name) {
-            students[i][event.target.name] = event.target.value;
-           break;
-         }
-         // if (i === val) {
+         // if (students[i].name === name) {
          //    students[i][event.target.name] = event.target.value;
          //   break;
          // }
+         if (i === index) {
+            // console.log("i",i )
+            // console.log("index",index )
+            students[i][event.target.name] = event.target.value;
+           break;
+         }
        }
       //  console.log("students",students )
        this.setState({
