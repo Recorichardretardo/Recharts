@@ -31,7 +31,7 @@
     "react-sigma": "^1.2.33",
     "reactstrap": "^8.4.1",
     "recharts": "^2.0.0-beta.1",
-    "xlsx": "^0.15.5"
+    "xlsx": "^0.17.0"
   },
   "scripts": {
     "start": "react-scripts start",
